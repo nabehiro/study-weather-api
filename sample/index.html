@@ -1,0 +1,28 @@
+<html>
+
+<body>
+  <h1>sample</h1>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+
+  <script>
+    $.ajax({
+      url: 'https://study-weather-api.azurewebsites.net/api/livedoor-weather',
+      jsonp: 'callback',
+      dataType: 'jsonp',
+      data: {
+        city: '130010',
+        //full: true
+      },
+      success: function(response) {
+        console.log(response);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
