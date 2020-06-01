@@ -3,24 +3,28 @@
 <body>
   <h1>sample</h1>
 
-
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
 
+  <button id="getButton">天気を取得</button>
+  <pre id="preview"></pre>
 
   <script>
-    $.ajax({
-      url: 'https://study-weather-api.azurewebsites.net/api/livedoor-weather',
-      jsonp: 'callback',
-      dataType: 'jsonp',
-      data: {
-        city: '130010',
-        //full: true
-      },
-      success: function(response) {
-        console.log(response);
-      }
-    });
+    $('#getButton').click(function () {
+      $.ajax({
+        url: 'https://study-weather-api.azurewebsites.net/api/livedoor-weather',
+        jsonp: 'callback',
+        dataType: 'jsonp',
+        data: {
+          city: '130010', //東京都
+          //full: true    //livedoor API のレスポンスをそのまま使いたいときはコメントアウト
+        },
+        success: function (response) {
+          console.log(response);
+          $('#preview').text(JSON.stringify(response));
+        }
+      });
+    })
   </script>
 
 </body>
