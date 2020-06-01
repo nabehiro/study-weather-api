@@ -19,16 +19,19 @@
 
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script>
+    // 以下のコードは jQuery で JSONP API を呼び出しています。
+    // 慣れてきたら jQuery を使わない呼び出しも試してみるといいかと思います。
     $('#getButton').click(function () {
       $.ajax({
         url: 'https://study-weather-api.azurewebsites.net/api/livedoor-weather',
         jsonp: 'callback',
         dataType: 'jsonp',
         data: {
-          city: '130010', //東京都
-          //full: true    //livedoor API のレスポンスをそのまま使いたいときはコメントアウト
+          city: '130010', //東京都。livedoor API の city パラメータを設定
+          //full: true    //livedoor API のレスポンスをそのまま使いたいときはコメントを外してください
         },
         success: function (response) {
+          // API の結果を取得したときの処理を記載します。
           console.log(response);
           $('#preview').text(JSON.stringify(response));
         }
