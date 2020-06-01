@@ -2,13 +2,22 @@
 
 <body>
   <h1>sample</h1>
+  
+  <p>
+    livedoor お天気 API を使用している。<br/>
+    http://weather.livedoor.com/weather_hacks/webservice <br/>
+    <br/>
+    形式: JSONP<br/>
+    パラメータ: city(livedoor API パラメータ city の値), callback(コールバック関数名)<br/>
+    <br/>
+    [呼び出しサンプルURL] https://study-weather-api.azurewebsites.net/api/livedoor-weather?city=130010&callback=hogehoge<br/>
+  </p>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-    crossorigin="anonymous"></script>
 
   <button id="getButton">天気を取得</button>
   <pre id="preview"></pre>
 
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script>
     $('#getButton').click(function () {
       $.ajax({
